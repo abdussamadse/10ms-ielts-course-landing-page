@@ -1,5 +1,7 @@
 import Hero from "@/app/components/hero/Hero";
 import { ApiResponse, APIData } from "@/app/types/ielts-course";
+import Instructor from "./components/Instructor/Instructor";
+import CourseStructure from "./components/CourseStructure/CourseStructure";
 
 // Fetches the course data from the API
 async function getCourseData(): Promise<APIData> {
@@ -25,6 +27,16 @@ export default async function Home() {
     <>
       {/* Hero Section */}
       <Hero courseData={courseData} />
+
+      {/* Instructor Section */}
+      <div className="flex w-full max-w-[1200px] mx-auto">
+        <Instructor />
+      </div>
+
+      {/* Course Structure Section */}
+      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
+        <CourseStructure />
+      </div>
     </>
   );
 }

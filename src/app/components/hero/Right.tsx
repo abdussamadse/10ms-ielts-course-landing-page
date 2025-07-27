@@ -39,7 +39,7 @@ export default function Right({ courseData }: HeroProps) {
             </div>
           </div>
 
-          <button className=" bg-green-600 text-white text-center whitespace-nowrap w-full md:w-full py-2 px-4 rounded text-lg font-medium hover:bg-green-700 transition">
+          <button className=" bg-green-600 text-white text-center whitespace-nowrap mt-2 md:mt-0 w-full md:w-full py-2 px-4 rounded text-lg font-medium hover:bg-green-700 transition">
             কোর্সটি কিনুন
           </button>
 

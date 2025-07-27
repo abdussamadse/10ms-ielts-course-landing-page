@@ -13,7 +13,7 @@ function stripHtml(html: string): string {
 
 export default function Left({ courseData }: HeroProps) {
   return (
-    <div className="flex flex-col h-auto justify-center flex-1 md:max-w-[calc(100%_-_348px)] lg:max-w-[calc(100%_-_452px)]">
+    <div className="flex flex-col h-auto justify-center flex-1 md:max-w-[calc(100%_-_348px)] lg:max-w-[calc(100%_-_452px)] px-3 pt-6 lg:pt-0 lg:px-0">
       {/* Mobile Video */}
       <div className="block mt-4 md:mt-0 md:hidden">
         <ThumbnailCarousel courseData={courseData} />
@@ -41,7 +41,9 @@ export default function Left({ courseData }: HeroProps) {
         </button>
       </div>
 
-      <div className="text-gray-400 pb-6">{stripHtml(courseData.description)}</div>
+      <div className="text-gray-400 pb-6">
+        {stripHtml(courseData.description)}
+      </div>
     </div>
   );
 }
