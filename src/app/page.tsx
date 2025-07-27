@@ -2,6 +2,9 @@ import Hero from "@/app/components/hero/Hero";
 import { ApiResponse, APIData } from "@/app/types/ielts-course";
 import Instructor from "./components/Instructor/Instructor";
 import CourseStructure from "./components/CourseStructure/CourseStructure";
+import FreePdf from "./components/FreePdf/FreePdf";
+import WhatYouWillLearn from "./components/WhatYouWillLearn/WhatYouWillLearn";
+import CourseAccordion from "./components/CourseContentPreview/CourseContentPreview";
 
 // Fetches the course data from the API
 async function getCourseData(): Promise<APIData> {
@@ -36,6 +39,21 @@ export default async function Home() {
       {/* Course Structure Section */}
       <div className="flex w-full max-w-[1200px] mx-auto mt-8">
         <CourseStructure />
+      </div>
+
+      {/* Free PDF Section */}
+      <div className="flex w-full max-w-[1200px] mx-auto">
+        <FreePdf />
+      </div>
+
+      {/* What You Will Learn Section */}
+      <div className="flex w-full max-w-[1200px] mx-auto">
+        <WhatYouWillLearn />
+      </div>
+
+      {/* Course Accordion Section */}
+      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
+        <CourseAccordion />
       </div>
     </>
   );
