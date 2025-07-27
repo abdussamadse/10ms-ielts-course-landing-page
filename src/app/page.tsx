@@ -5,6 +5,8 @@ import CourseStructure from "./components/CourseStructure/CourseStructure";
 import FreePdf from "./components/FreePdf/FreePdf";
 import WhatYouWillLearn from "./components/WhatYouWillLearn/WhatYouWillLearn";
 import CourseAccordion from "./components/CourseContentPreview/CourseContentPreview";
+import CourseDetails from "./components/CourseDetails/CourseDetails";
+import ExclusiveFeature from "./components/ExclusiveFeature/ExclusiveFeature";
 
 // Fetches the course data from the API
 async function getCourseData(): Promise<APIData> {
@@ -54,6 +56,16 @@ export default async function Home() {
       {/* Course Accordion Section */}
       <div className="flex w-full max-w-[1200px] mx-auto mt-8">
         <CourseAccordion />
+      </div>
+
+      {/* Course details section */}
+      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
+        <CourseDetails />
+      </div>
+
+      {/* Exclusive Feature section */}
+      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
+        <ExclusiveFeature />
       </div>
     </>
   );
