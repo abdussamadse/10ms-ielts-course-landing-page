@@ -3,3 +3,12 @@
 body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
+
+/* globals.css */
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hideScrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

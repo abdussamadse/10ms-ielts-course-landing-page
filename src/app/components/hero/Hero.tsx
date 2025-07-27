@@ -17,11 +17,12 @@ export default function Hero({ courseData }: HeroProps) {
       }}
     >
       <div className="w-full max-w-[1200px] mx-auto relative">
-        <div className="w-full flex min-h-[300px] px-3">
+        <div className="w-full flex min-h-[300px] px-3 md:px-0">
           {/* Header left */}
           <Left courseData={courseData} />
         </div>
         {/* Header right */}
+
         <Right courseData={courseData} />
       </div>
     </div>

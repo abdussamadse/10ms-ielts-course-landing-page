@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { APIData } from "@/app/types/ielts-course";
+import ThumbnailCarousel from "./ThumbnailGallery";
 
 interface HeroProps {
   courseData: APIData;
@@ -15,26 +16,7 @@ export default function Left({ courseData }: HeroProps) {
     <div className="flex flex-col h-auto justify-center flex-1 md:max-w-[calc(100%_-_348px)] lg:max-w-[calc(100%_-_452px)]">
       {/* Mobile Video */}
       <div className="block mt-4 md:mt-0 md:hidden">
-        <div className="relative overflow-hidden bg-black youtube-video aspect-video">
-          <div className="relative">
-            <span className="absolute left-1/2 top-1/2 z-[2] -translate-x-1/2 -translate-y-1/2 cursor-pointer">
-              {/* Play Icon */}
-              <Image
-                src="/icons/play.svg"
-                alt="Play Icon"
-                width={56}
-                height={56}
-              />
-            </span>
-            <Image
-              src="https://cdn.10minuteschool.com/images/thumbnails/IELTS_new_16_9.png"
-              alt="IELTS Thumbnail"
-              width={867}
-              height={480}
-              className="w-full"
-            />
-          </div>
-        </div>
+        <ThumbnailCarousel courseData={courseData} />
       </div>
 
       {/* Course Title, Rating and Description */}
@@ -59,7 +41,7 @@ export default function Left({ courseData }: HeroProps) {
         </button>
       </div>
 
-      <div className="text-gray-400">{stripHtml(courseData.description)}</div>
+      <div className="text-gray-400 pb-6">{stripHtml(courseData.description)}</div>
     </div>
   );
 }

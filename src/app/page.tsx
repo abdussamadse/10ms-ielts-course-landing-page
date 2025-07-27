@@ -6,7 +6,7 @@ async function getCourseData(): Promise<APIData> {
   const res = await fetch(
     "https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course",
     {
-      next: { revalidate: 180 }, // Revalidates data every 180 seconds
+      next: { revalidate: 300 }, // Revalidates data every 300 seconds
     }
   );
 
