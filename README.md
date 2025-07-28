@@ -1,4 +1,3 @@
-📄 Overview
 This project is a frontend assessment built with Next.js, TypeScript, and Tailwind CSS. It demonstrates the ability to build scalable, maintainable, and responsive web applications using modern frontend technologies.
 
 🚀 Getting Started
@@ -6,34 +5,19 @@ Follow these steps to get the project running locally:
 
 Clone the repository:
 
-bash
-Copy
-Edit
 git clone https://github.com/abdussamadse/ielts-course-landing-page
 cd ielts-course-landing-page
 Install dependencies:
 
-bash
-Copy
-Edit
 npm install
 or if you use yarn:
 
-bash
-Copy
-Edit
 yarn install
 Run the development server:
 
-bash
-Copy
-Edit
 npm run dev
 or
 
-bash
-Copy
-Edit
 yarn dev
 Open http://localhost:3000 in your browser to view the app.
 
