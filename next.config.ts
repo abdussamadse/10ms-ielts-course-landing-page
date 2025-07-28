@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
       "s3.ap-southeast-1.amazonaws.com",
     ],
   },
-  output: 'export', 
 };
 
 export default nextConfig;
