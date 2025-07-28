@@ -1,4 +1,3 @@
-import Hero from "@/app/components/Hero/Hero";
 import { ApiResponse, APIData } from "@/app/types/ielts-course";
 import Instructor from "./components/Instructor/Instructor";
 import CourseStructure from "./components/CourseStructure/CourseStructure";
@@ -15,6 +14,7 @@ import FAQSection from "./components/FAQSection/FAQSection";
 import ContactHelp from "./components/ContactHelp/ContactHelp";
 import RecommendedCourses from "./components/RecommendedCourses/RecommendedCourses";
 import BuyCourseWrapper from "./components/BuyCourse/BuyCourseWrapper";
+import Hero from "./components/Hero/Hero";
 
 // Fetches the course data from the API
 async function getCourseData(): Promise<APIData> {
