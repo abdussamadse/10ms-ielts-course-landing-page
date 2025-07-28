@@ -55,11 +55,11 @@ export interface CtaText {
   value: string;
 }
 
-export interface Section {
+export interface Section<T = unknown> {
   type: string;
   name: string;
   description: string;
   bg_color: string;
   order_idx: number;
-  values: [];
+  values: T[];
 }

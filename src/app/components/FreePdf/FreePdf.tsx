@@ -1,40 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
-import { APIData } from "@/app/types/ielts-course"; // Adjust path if needed
+import { APIData, Section } from "@/app/types/ielts-course";
 
-// Define the expected shape of data for the "group_join_engagement" section
+// Your EngagementValue shape
 interface EngagementValue {
-  background: {
-    image: string;
-  };
-  cta: {
-    clicked_url: string;
-    text: string;
-  };
+  background: { image: string };
+  cta: { clicked_url: string; text: string };
   description: string;
   thumbnail: string;
   title: string;
   top_left_icon_img: string;
 }
 
-// Props expected by the FreePdf component
+interface GroupJoinEngagementSection
+  extends Omit<Section<EngagementValue>, "type"> {
+  type: "group_join_engagement";
+}
+
 interface FreePdfProps {
   courseData: APIData;
 }
 
 const FreePdf = ({ courseData }: FreePdfProps) => {
-  // Find the specific section related to engagement (e.g., PDF CTA)
   const engagementSection = courseData.sections.find(
-    (section) => section.type === "group_join_engagement"
+    (section): section is GroupJoinEngagementSection =>
+      section.type === "group_join_engagement"
   );
 
-  // Safely extract the first engagement value
-  const pdfData = engagementSection?.values?.[0] as EngagementValue | undefined;
+  if (!engagementSection) return null;
 
-  // If no data available, render nothing
-  if (!pdfData) {
-    return null;
-  }
+  const pdfData = engagementSection.values[0];
+  if (!pdfData) return null;
 
   return (
     <div
@@ -45,9 +41,7 @@ const FreePdf = ({ courseData }: FreePdfProps) => {
         backgroundPosition: "center",
       }}
     >
-      {/* Left Side: Text and CTA */}
       <div className="w-full md:w-1/2">
-        {/* Optional top-left icon (e.g., pointer or badge) */}
         <div className="mb-4">
           <Image
             src={pdfData.top_left_icon_img}
@@ -58,11 +52,9 @@ const FreePdf = ({ courseData }: FreePdfProps) => {
           />
         </div>
 
-        {/* Title and description */}
         <h2 className="text-xl font-semibold text-white">{pdfData.title}</h2>
         <p className="mt-2 text-base text-[#ededed]">{pdfData.description}</p>
 
-        {/* Call-to-action button to download the PDF */}
         <Link
           href={pdfData.cta.clicked_url}
           className="mt-6 inline-block px-4 py-2 text-white bg-green-600 hover:bg-green-700 rounded-md transition"
@@ -73,7 +65,6 @@ const FreePdf = ({ courseData }: FreePdfProps) => {
         </Link>
       </div>
 
-      {/* Right Side: Thumbnail image (only shown on medium and larger screens) */}
       <div className="items-center justify-end hidden w-1/2 md:flex">
         <Image
           src={pdfData.thumbnail}
