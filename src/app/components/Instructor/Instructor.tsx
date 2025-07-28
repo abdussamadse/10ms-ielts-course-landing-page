@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Instructor = () => {
   return (
-    <div className="pt-4 pb-2 bg-white w-full sm:w-[440px] lg:w-[740px] mt-[520px] sm:mt-0 px-4 lg:px-0">
+    <div className="w-full pt-4 mt-[480px] md:mt-0">
       <h2 className="mb-4 text-xl font-semibold md:text-2xl">
         কোর্স ইন্সট্রাক্টর
       </h2>

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const FreeWithCourse = () => {
   return (
-    <div className="mb-14 w-full sm:w-[440px] lg:w-[740px] px-4 lg:px-0 mt-4">
+    <div className="w-full">
       <h2 className="my-4 text-xl font-semibold leading-[30px] text-black">
         এই কোর্সের সাথে ফ্রি পাচ্ছেন–
       </h2>

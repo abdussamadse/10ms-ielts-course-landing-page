@@ -2,7 +2,7 @@ import CheckIcon from "../Common/CheckIcon";
 
 const ClassRequirements = () => {
   return (
-    <div className="mb-0 w-full sm:w-[440px] lg:w-[740px] px-4 lg:px-0">
+    <div className="w-full">
       <h2 className="mb-4 text-xl font-semibold md:text-2xl">
         ক্লাস করার জন্য প্রয়োজন হবে
       </h2>

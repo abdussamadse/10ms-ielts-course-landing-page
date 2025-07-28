@@ -1,6 +1,6 @@
 const ContactHelp = () => {
   return (
-    <div className="mb-0 w-full sm:w-[440px] lg:w-[740px] px-4 lg:px-0">
+    <div className="w-full">
       <h2 className="mb-4 text-xl font-semibold md:text-2xl">
         আরও কোন জিজ্ঞাসা আছে?
       </h2>

@@ -133,7 +133,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <div className="bg-white w-full sm:w-[440px] lg:w-[740px] px-4 lg:px-0">
+    <div className="w-full">
       <h2 className="text-base md:text-xl font-bold mb-4" id="faq">
         সচরাচর জিজ্ঞাসা
       </h2>
@@ -166,7 +166,9 @@ const FAQSection = () => {
                 />
               </svg>
             </button>
-            {openIndex === index && <div className="pb-4 flex">{faq.answer}</div>}
+            {openIndex === index && (
+              <div className="pb-4 flex">{faq.answer}</div>
+            )}
           </div>
         ))}
       </div>

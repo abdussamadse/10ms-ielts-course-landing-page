@@ -14,6 +14,7 @@ import PaymentInstructions from "./components/PaymentInstructions/PaymentInstruc
 import FAQSection from "./components/FAQSection/FAQSection";
 import ContactHelp from "./components/ContactHelp/ContactHelp";
 import RecommendedCourses from "./components/RecommendedCourses/RecommendedCourses";
+import BuyCourseWrapper from "./components/BuyCourse/BuyCourseWrapper";
 
 // Fetches the course data from the API
 async function getCourseData(): Promise<APIData> {
@@ -40,73 +41,57 @@ export default async function Home() {
       {/* Hero Section */}
       <Hero courseData={courseData} />
 
-      {/* Instructor Section */}
-      <div className="flex w-full max-w-[1200px] mx-auto">
-        <Instructor />
+      <div className="flex w-full max-w-[1200px] mx-auto mt-8 sm:gap-5 md:gap-10 lg:gap-16">
+        <div className="flex flex-col w-full sm:w-[440px] lg:w-[740px] gap-14 px-3 lg:px-0">
+          {/* Instructor Section */}
+          <Instructor />
+
+          {/* Course Structure Section */}
+          <CourseStructure />
+
+          {/* Free PDF Section */}
+          <FreePdf />
+
+          {/* What You Will Learn Section */}
+          <WhatYouWillLearn />
+
+          {/* Course Accordion Section */}
+          <CourseAccordion />
+
+          {/* Course details section */}
+          <CourseDetails />
+
+          {/* Exclusive Feature section */}
+          <ExclusiveFeature />
+
+          {/* Free With Course section*/}
+          <FreeWithCourse />
+
+          {/* Testimonial section */}
+          <TestimonialSlider />
+
+          {/* Class Requirements section*/}
+          <ClassRequirements />
+
+          {/* Payment Instructions section*/}
+          <PaymentInstructions />
+
+          {/* FAQ Section section*/}
+          <FAQSection />
+
+          {/* Contact Help section*/}
+          <ContactHelp />
+        </div>
+
+        <div className="hidden md:block w-[330px] lg:w-[400px]">
+          <div className="sticky top-8">
+            <BuyCourseWrapper courseData={courseData} />
+          </div>
+        </div>
       </div>
 
-      {/* Course Structure Section */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
-        <CourseStructure />
-      </div>
-
-      {/* Free PDF Section */}
-      <div className="flex w-full max-w-[1200px] mx-auto">
-        <FreePdf />
-      </div>
-
-      {/* What You Will Learn Section */}
-      <div className="flex w-full max-w-[1200px] mx-auto">
-        <WhatYouWillLearn />
-      </div>
-
-      {/* Course Accordion Section */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
-        <CourseAccordion />
-      </div>
-
-      {/* Course details section */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
-        <CourseDetails />
-      </div>
-
-      {/* Exclusive Feature section */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
-        <ExclusiveFeature />
-      </div>
-
-      {/* Free With Course */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
-        <FreeWithCourse />
-      </div>
-
-      {/* Free With Course */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
-        <TestimonialSlider />
-      </div>
-
-      {/* Class Requirements */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
-        <ClassRequirements />
-      </div>
-
-      {/* Payment Instructions */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
-        <PaymentInstructions />
-      </div>
-
-      {/* FAQ Section */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
-        <FAQSection />
-      </div>
-
-      {/* Contact Help */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
-        <ContactHelp />
-      </div>
-
-      {/* Contact Help */}
-      <div className="flex w-full max-w-[1200px] mx-auto mt-8">
+      {/* Contact Help section*/}
+      <div className="flex w-full max-w-[1200px] mx-auto my-14 px-3 lg:px-0">
         <RecommendedCourses />
       </div>
     </>

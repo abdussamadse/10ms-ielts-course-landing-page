@@ -117,7 +117,7 @@ const CourseDetails = () => {
   ];
 
   return (
-    <div className="bg-white w-full sm:w-[440px] lg:w-[740px] px-4 lg:px-0 mt-4">
+    <div className="w-full">
       <h2 className="text-lg md:text-xl font-bold md:mb-4">
         কোর্স সম্পর্কে বিস্তারিত
       </h2>

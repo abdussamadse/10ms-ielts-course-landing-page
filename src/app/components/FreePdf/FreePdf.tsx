@@ -3,7 +3,7 @@ import Image from "next/image";
 const FreePdf = () => {
   return (
     <div
-      className="flex gap-4 p-4 mb-8 overflow-hidden rounded-xl md:p-8 md:mb-12 w-full sm:w-[410px] lg:w-[740px] mx-4 lg:mx-0"
+      className="flex gap-4 p-4 overflow-hidden rounded-xl md:p-8"
       style={{
         backgroundImage:
           "url(https://cdn.10minuteschool.com/images/Free_class_card_BG_1722414654287.png)",

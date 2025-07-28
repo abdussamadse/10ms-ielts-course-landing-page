@@ -1,6 +1,6 @@
 const PaymentInstructions = () => {
   return (
-    <div className="mb-10 mt-8 w-full sm:w-[440px] lg:w-[740px] px-4 lg:px-0">
+    <div className="w-full">
       <h2 className="mb-4 text-xl font-semibold md:text-2xl">
         যেভাবে পেমেন্ট করবেন
       </h2>

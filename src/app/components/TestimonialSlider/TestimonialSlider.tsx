@@ -70,7 +70,7 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <section className="mb-10 w-full sm:w-[440px] lg:w-[740px] px-4 lg:px-0 mt-4">
+    <div className="w-full">
       <h2 className="mb-4 text-xl font-semibold">শিক্ষার্থীরা যা বলছে</h2>
       <div className="relative">
         <div className="relative">
@@ -168,7 +168,7 @@ const TestimonialSlider = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

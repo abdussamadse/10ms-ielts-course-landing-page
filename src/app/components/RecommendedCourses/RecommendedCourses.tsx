@@ -103,7 +103,7 @@ const RecommendedCoursesSlider = () => {
   };
 
   return (
-    <section className="mb-10 w-full px-4 lg:px-0 mt-4">
+    <div className="w-full">
       {/* Header + Arrows */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-semibold">আপনার জন্য আরও কিছু কোর্স</h2>
@@ -171,7 +171,7 @@ const RecommendedCoursesSlider = () => {
           </Link>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
