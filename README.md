@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📄 Overview
+This project is a frontend assessment built with Next.js, TypeScript, and Tailwind CSS. It demonstrates the ability to build scalable, maintainable, and responsive web applications using modern frontend technologies.
 
-## Getting Started
+🚀 Getting Started
+Follow these steps to get the project running locally:
 
-First, run the development server:
+Clone the repository:
 
-```bash
+bash
+Copy
+Edit
+git clone https://github.com/your-username/frontend-assessment.git
+cd frontend-assessment
+Install dependencies:
+
+bash
+Copy
+Edit
+npm install
+or if you use yarn:
+
+bash
+Copy
+Edit
+yarn install
+Run the development server:
+
+bash
+Copy
+Edit
 npm run dev
-# or
+or
+
+bash
+Copy
+Edit
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in your browser to view the app.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🛠️ Technologies Used
+Next.js – React framework for server-side rendering and static site generation.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+TypeScript – Typed superset of JavaScript for safer, scalable code.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Tailwind CSS – Utility-first CSS framework for rapid UI development.
 
-## Learn More
+React – For building UI components.
 
-To learn more about Next.js, take a look at the following resources:
+ESLint & Prettier – For code linting and formatting.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📌 Features
+Server-side rendering (SSR) and static generation with Next.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Strongly typed components and pages using TypeScript.
 
-## Deploy on Vercel
+Responsive, mobile-first design using Tailwind CSS.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Clean, reusable, and modular React components.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Accessibility considerations in UI.
+
+Environment variable configuration for easy customization.
