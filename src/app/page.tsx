@@ -1,20 +1,21 @@
+// All imports now use the consistent '@/' path alias
 import { ApiResponse, APIData } from "@/app/types/ielts-course";
-import Instructor from "./components/Instructor/Instructor";
-import CourseStructure from "./components/CourseStructure/CourseStructure";
-import FreePdf from "./components/FreePdf/FreePdf";
-import WhatYouWillLearn from "./components/WhatYouWillLearn/WhatYouWillLearn";
-import CourseAccordion from "./components/CourseContentPreview/CourseContentPreview";
-import CourseDetails from "./components/CourseDetails/CourseDetails";
-import ExclusiveFeature from "./components/ExclusiveFeature/ExclusiveFeature";
-import FreeWithCourse from "./components/FreeWithCourse/FreeWithCourse";
-import TestimonialSlider from "./components/TestimonialSlider/TestimonialSlider";
-import ClassRequirements from "./components/ClassRequirements/ClassRequirements";
-import PaymentInstructions from "./components/PaymentInstructions/PaymentInstructions";
-import FAQSection from "./components/FAQSection/FAQSection";
-import ContactHelp from "./components/ContactHelp/ContactHelp";
-import RecommendedCourses from "./components/RecommendedCourses/RecommendedCourses";
-import BuyCourseWrapper from "./components/BuyCourse/BuyCourseWrapper";
-import Hero from "./components/Hero/Hero";
+import Instructor from "@/app/components/Instructor/Instructor";
+import CourseStructure from "@/app/components/CourseStructure/CourseStructure";
+import FreePdf from "@/app/components/FreePdf/FreePdf";
+import WhatYouWillLearn from "@/app/components/WhatYouWillLearn/WhatYouWillLearn";
+import CourseAccordion from "@/app/components/CourseContentPreview/CourseContentPreview";
+import CourseDetails from "@/app/components/CourseDetails/CourseDetails";
+import ExclusiveFeature from "@/app/components/ExclusiveFeature/ExclusiveFeature";
+import FreeWithCourse from "@/app/components/FreeWithCourse/FreeWithCourse";
+import TestimonialSlider from "@/app/components/TestimonialSlider/TestimonialSlider";
+import ClassRequirements from "@/app/components/ClassRequirements/ClassRequirements";
+import PaymentInstructions from "@/app/components/PaymentInstructions/PaymentInstructions";
+import FAQSection from "@/app/components/FAQSection/FAQSection";
+import ContactHelp from "@/app/components/ContactHelp/ContactHelp";
+import RecommendedCourses from "@/app/components/RecommendedCourses/RecommendedCourses";
+import BuyCourseWrapper from "@/app/components/BuyCourse/BuyCourseWrapper";
+import Hero from "@/app/components/Hero/Hero"; // Corrected path alias
 
 // Fetches the course data from the API
 async function getCourseData(): Promise<APIData> {
