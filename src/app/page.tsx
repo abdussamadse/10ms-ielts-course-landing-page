@@ -15,7 +15,7 @@ import FAQSection from "@/app/components/FAQSection/FAQSection";
 import ContactHelp from "@/app/components/ContactHelp/ContactHelp";
 import RecommendedCourses from "@/app/components/RecommendedCourses/RecommendedCourses";
 import BuyCourseWrapper from "@/app/components/BuyCourse/BuyCourseWrapper";
-import Hero from "@/app/components/Hero/Hero"; // Corrected path alias
+import Hero from "@/app/components/Hero/Hero";
 
 // Fetches the course data from the API
 async function getCourseData(): Promise<APIData> {
