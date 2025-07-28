@@ -1,3 +1,5 @@
+import CheckIcon from "../Common/CheckIcon";
+
 const items = [
   "IELTS পরীক্ষার প্রত্যেক সেকশনের প্রশ্ন ও উত্তরের ধরন, টাইম ম্যানেজমেন্ট সম্পর্কিত গুরুত্বপূর্ণ টিপস, ট্রিকস ও স্ট্র্যাটেজি",
   "IELTS Writing Task 1 ও IELTS Writing Task 2 এর ক্ষেত্রে ভালো স্কোর পেতে সহায়ক Structure ও Essay type",
@@ -8,25 +10,6 @@ const items = [
 ];
 
 const WhatYouWillLearn = () => {
-  const CheckIcon = () => (
-    <svg
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      className="mr-1 mt-[2px]"
-      width={20}
-      height={20}
-      style={{ color: "#6294F8" }}
-      aria-hidden="true"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 
-        12.586l7.293-7.293a1 1 0 011.414 0z"
-      />
-    </svg>
-  );
-
   return (
     <div className="w-full sm:w-[440px] lg:w-[740px] px-4 lg:px-0">
       <h2 className="mb-4 text-xl font-semibold md:text-2xl">
