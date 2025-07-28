@@ -15,7 +15,7 @@ import FAQSection from "@/app/components/FAQSection/FAQSection";
 import ContactHelp from "@/app/components/ContactHelp/ContactHelp";
 import RecommendedCourses from "@/app/components/RecommendedCourses/RecommendedCourses";
 import BuyCourseWrapper from "@/app/components/BuyCourse/BuyCourseWrapper";
-import Hero from "@/app/components/Hero/Hero";
+import Header from "@/app/components/Header/Header";
 
 // Fetches the course data from the API
 async function getCourseData(): Promise<APIData> {
@@ -40,7 +40,7 @@ export default async function Home() {
   return (
     <>
       {/* Hero Section */}
-      <Hero courseData={courseData} />
+      <Header courseData={courseData} />
 
       <div className="flex w-full max-w-[1200px] mx-auto mt-8 sm:gap-5 md:gap-10 lg:gap-16">
         <div className="flex flex-col w-full sm:w-[440px] lg:w-[740px] gap-14 px-3 lg:px-0">

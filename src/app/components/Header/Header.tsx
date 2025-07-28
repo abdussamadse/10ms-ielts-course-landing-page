@@ -7,7 +7,7 @@ interface HeroProps {
   courseData: APIData;
 }
 
-export default function Hero({ courseData }: HeroProps) {
+export default function Header({ courseData }: HeroProps) {
   return (
     <div
       className="min-h-[300px] bg-cover bg-center"
