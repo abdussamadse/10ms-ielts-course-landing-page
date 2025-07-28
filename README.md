@@ -9,8 +9,8 @@ Clone the repository:
 bash
 Copy
 Edit
-git clone https://github.com/your-username/frontend-assessment.git
-cd frontend-assessment
+git clone https://github.com/abdussamadse/ielts-course-landing-page
+cd ielts-course-landing-page
 Install dependencies:
 
 bash
