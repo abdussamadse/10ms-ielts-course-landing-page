@@ -4,9 +4,11 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa6";
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
+import { APIData } from "@/app/types/ielts-course";
 
+// Interface for the component's internal use.
 interface Testimonial {
-  id: number;
+  id: string;
   videoThumbnail?: string;
   text?: string;
   userImage: string;
@@ -14,50 +16,29 @@ interface Testimonial {
   userScore: string;
 }
 
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    videoThumbnail:
-      "https://cdn.10minuteschool.com/images/catalog/product/testimonial/AvB2ibYd1z4-HD_1727177955435.jpg",
-    userImage:
-      "https://cdn.10minuteschool.com/images/catalog/product/testimonial/Screenshot_39_1746355488882.png",
-    userName: "Junaed Bin Samad",
-    userScore: "IELTS Score: 8.5",
-  },
-  {
-    id: 2,
-    videoThumbnail:
-      "https://cdn.10minuteschool.com/images/catalog/product/testimonial/KcwncFcSIOY-HD_1727178045711.jpg",
-    userImage:
-      "https://cdn.10minuteschool.com/images/catalog/product/testimonial/Screenshot_45_1746359412430.png",
-    userName: "Shah Mohammad Rafi",
-    userScore: "IELTS Score: 8",
-  },
-  {
-    id: 3,
-    text: "আমি অনেক রিসোর্স দেখেছিলাম, কিন্তু এই কোর্সটাই ছিল সবচেয়ে organized! 8.0 স্কোর করতে পেরেছি কারণ এখানে প্রতিটি টপিক ছিল logically arranged আর super easy to understand! Mock test আর support group দুটোই আমার preparation-এ game-changer ছিল। বিশ্বাস করতে পারিনি এতটা smooth-ভাবে প্রস্তুতি নিতে পারবো।",
-    userImage:
-      "https://cdn.10minuteschool.com/images/catalog/product/testimonial/Screenshot_15_1746957495847.png",
-    userName: "Asim Nabil",
-    userScore: "IELTS Score: 8",
-  },
-  {
-    id: 4,
-    text: "আমি পুরো IELTS প্রিপারেশনটা নিয়েছি এই কোর্স থেকে—আর ফলাফল 7.5 স্কোর! Live classes, mock tests, আর Easy to understand লেসন–সবকিছুই বুঝতে সহজ ছিল। সাপোর্ট গ্রুপ আর doubt solving সেশনগুলো আমাকে অনেক সাহস দিয়েছে। এই কোর্স ছাড়া এতটা organized way-তে প্রস্তুতি নেওয়া সম্ভব হতো না।",
-    userImage:
-      "https://cdn.10minuteschool.com/images/catalog/product/testimonial/Screenshot_44_1746359283855.png",
-    userName: "Moinul Islam Mahin",
-    userScore: "IELTS Score: 7.5",
-  },
-];
+// Define the shape of a testimonial object from the API
+interface APITestimonialValue {
+  id: string;
+  thumb?: string;
+  testimonial: string;
+  profile_image: string;
+  name: string;
+  description: string;
+  video_url?: string;
+}
 
-const TestimonialSlider = () => {
+// Define the type for the component's props
+interface TestimonialSliderProps {
+  courseData: APIData;
+}
+
+const TestimonialSlider = ({ courseData }: TestimonialSliderProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current && cardRef.current) {
-      const cardWidth = cardRef.current.offsetWidth + 16;
+      const cardWidth = cardRef.current.offsetWidth + 16; // 16px for gap
       const { scrollLeft } = scrollRef.current;
       const newScrollPosition =
         direction === "left" ? scrollLeft - cardWidth : scrollLeft + cardWidth;
@@ -69,15 +50,38 @@ const TestimonialSlider = () => {
     }
   };
 
+  // Find the 'testimonials' section from the API data
+  const testimonialsSection = courseData.sections.find(
+    (section) => section.type === "testimonials"
+  );
+
+  // Transform the API data into the structure the component needs
+  const testimonials: Testimonial[] =
+    testimonialsSection?.values?.map((item) => {
+      const apiItem = item as APITestimonialValue;
+      return {
+        id: apiItem.id,
+        // If video_url exists, it's a video testimonial. Use the thumbnail.
+        videoThumbnail: apiItem.video_url ? apiItem.thumb : undefined,
+        // If there's NO video_url, it's a text testimonial. Use the testimonial text.
+        text: !apiItem.video_url ? apiItem.testimonial : undefined,
+        userImage: apiItem.profile_image,
+        userName: apiItem.name,
+        userScore: apiItem.description, // 'description' from API holds the score
+      };
+    }) || []; // Fallback to an empty array
+
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-xl font-semibold">শিক্ষার্থীরা যা বলছে</h2>
+      <h2 className="mb-4 text-xl font-semibold">
+        {testimonialsSection?.name || "শিক্ষার্থীরা যা বলছে"}
+      </h2>
       <div className="relative">
         <div className="relative">
           {/* Right Arrow */}
           <div
             onClick={() => scroll("right")}
-            className="cursor-pointer absolute right-0 top-1/2 z-[3] -translate-y-1/2 mx-lg:hidden xl:mr-[-40px] bg-[#a19b98] h-[38px] w-[38px] items-center justify-center flex rounded-full"
+            className="cursor-pointer absolute right-0 top-1/2 z-[3] -translate-y-1/2 hidden md:flex bg-[#a19b98] h-[38px] w-[38px] items-center justify-center rounded-full xl:mr-[-40px]"
           >
             <MdArrowForwardIos className="text-white" />
           </div>
@@ -85,7 +89,7 @@ const TestimonialSlider = () => {
           {/* Left Arrow */}
           <div
             onClick={() => scroll("left")}
-            className="cursor-pointer absolute left-0 top-1/2 z-[2] -translate-y-1/2 mx-lg:hidden xl:ml-[-40px] bg-[#a19b98] h-[38px] w-[38px] items-center justify-center flex rounded-full"
+            className="cursor-pointer absolute left-0 top-1/2 z-[2] -translate-y-1/2 hidden md:flex bg-[#a19b98] h-[38px] w-[38px] items-center justify-center rounded-full xl:ml-[-40px]"
           >
             <MdArrowBackIosNew className="text-white" />
           </div>
@@ -98,7 +102,7 @@ const TestimonialSlider = () => {
             {testimonials.map((card: Testimonial, index: number) => (
               <div
                 key={card.id}
-                ref={index === 0 ? cardRef : null} // Attach ref only to first card
+                ref={index === 0 ? cardRef : null} // Attach ref to first card to measure width
                 className="snap-start flex-shrink-0 relative mt-5 w-[260px] md:w-[372px] rounded-lg border border-gray-300 p-6 flex min-h-[250px] flex-col justify-between bg-white md:min-h-[297px]"
               >
                 {/* Card Content */}

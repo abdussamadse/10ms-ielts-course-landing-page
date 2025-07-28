@@ -1,45 +1,82 @@
 import Image from "next/image";
+import Link from "next/link";
+import { APIData } from "@/app/types/ielts-course"; // Adjust path if needed
 
-const FreePdf = () => {
+// Define the expected shape of data for the "group_join_engagement" section
+interface EngagementValue {
+  background: {
+    image: string;
+  };
+  cta: {
+    clicked_url: string;
+    text: string;
+  };
+  description: string;
+  thumbnail: string;
+  title: string;
+  top_left_icon_img: string;
+}
+
+// Props expected by the FreePdf component
+interface FreePdfProps {
+  courseData: APIData;
+}
+
+const FreePdf = ({ courseData }: FreePdfProps) => {
+  // Find the specific section related to engagement (e.g., PDF CTA)
+  const engagementSection = courseData.sections.find(
+    (section) => section.type === "group_join_engagement"
+  );
+
+  // Safely extract the first engagement value
+  const pdfData = engagementSection?.values?.[0] as EngagementValue | undefined;
+
+  // If no data available, render nothing
+  if (!pdfData) {
+    return null;
+  }
+
   return (
     <div
       className="flex gap-4 p-4 overflow-hidden rounded-xl md:p-8"
       style={{
-        backgroundImage:
-          "url(https://cdn.10minuteschool.com/images/Free_class_card_BG_1722414654287.png)",
+        backgroundImage: `url(${pdfData.background.image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Left Content */}
+      {/* Left Side: Text and CTA */}
       <div className="w-full md:w-1/2">
+        {/* Optional top-left icon (e.g., pointer or badge) */}
         <div className="mb-4">
           <Image
-            src="https://cdn.10minuteschool.com/images/catalog/product/pointer/467478234_1276985680016189_8175110495169425888_n_1732621150265.png"
+            src={pdfData.top_left_icon_img}
             alt="Pointer icon"
             width={160}
             height={40}
             className="h-10 w-auto"
           />
         </div>
-        <h2 className="text-xl font-semibold text-white">
-          IELTS Confirm 7+ Score (Guideline)
-        </h2>
-        <p className="mt-2 text-base text-[#ededed]">
-          IELTS ভালো score করার সেরা Strategies জানুন সেরাদের গাইডলাইনে ।
-        </p>
-        <button
-          className="mt-6 px-4 py-2 text-white bg-green-600 hover:bg-green-700 rounded-md transition"
+
+        {/* Title and description */}
+        <h2 className="text-xl font-semibold text-white">{pdfData.title}</h2>
+        <p className="mt-2 text-base text-[#ededed]">{pdfData.description}</p>
+
+        {/* Call-to-action button to download the PDF */}
+        <Link
+          href={pdfData.cta.clicked_url}
+          className="mt-6 inline-block px-4 py-2 text-white bg-green-600 hover:bg-green-700 rounded-md transition"
           aria-label="Download free IELTS PDF"
+          download
         >
-          ফ্রি PDF Download করুন
-        </button>
+          {pdfData.cta.text}
+        </Link>
       </div>
 
-      {/* Right Image (Only visible on md+) */}
+      {/* Right Side: Thumbnail image (only shown on medium and larger screens) */}
       <div className="items-center justify-end hidden w-1/2 md:flex">
         <Image
-          src="https://cdn.10minuteschool.com/images/catalog/product/pointer/Thumbnail_for_IELTS_Course_by_MS_1732621023962.jpg"
+          src={pdfData.thumbnail}
           alt="IELTS Course Thumbnail"
           width={300}
           height={200}

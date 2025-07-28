@@ -44,45 +44,46 @@ export default async function Home() {
       <div className="flex w-full max-w-[1200px] mx-auto mt-8 sm:gap-5 md:gap-10 lg:gap-16">
         <div className="flex flex-col w-full sm:w-[440px] lg:w-[740px] gap-14 px-3 lg:px-0">
           {/* Instructor Section */}
-          <Instructor />
+          <Instructor courseData={courseData} />
 
           {/* Course Structure Section */}
-          <CourseStructure />
+          <CourseStructure courseData={courseData} />
 
           {/* Free PDF Section */}
-          <FreePdf />
+          <FreePdf courseData={courseData} />
 
           {/* What You Will Learn Section */}
-          <WhatYouWillLearn />
+          <WhatYouWillLearn courseData={courseData} />
 
           {/* Course Accordion Section */}
           <CourseAccordion />
 
-          {/* Course details section */}
-          <CourseDetails />
+          {/* Course Details Section */}
+          <CourseDetails courseData={courseData} />
 
-          {/* Exclusive Feature section */}
-          <ExclusiveFeature />
+          {/* Exclusive Feature Section */}
+          <ExclusiveFeature courseData={courseData} />
 
-          {/* Free With Course section*/}
-          <FreeWithCourse />
+          {/* Free With Course Section*/}
+          <FreeWithCourse courseData={courseData} />
 
-          {/* Testimonial section */}
-          <TestimonialSlider />
+          {/* Testimonial Section */}
+          <TestimonialSlider courseData={courseData} />
 
-          {/* Class Requirements section*/}
-          <ClassRequirements />
+          {/* Class Requirements Section*/}
+          <ClassRequirements courseData={courseData} />
 
-          {/* Payment Instructions section*/}
-          <PaymentInstructions />
+          {/* Payment Instructions Section*/}
+          <PaymentInstructions courseData={courseData} />
 
-          {/* FAQ Section section*/}
-          <FAQSection />
+          {/* FAQ Section Section*/}
+          <FAQSection courseData={courseData} />
 
-          {/* Contact Help section*/}
+          {/* Contact Help Section*/}
           <ContactHelp />
         </div>
 
+        {/* Sticky Price Section  */}
         <div className="hidden md:block w-[330px] lg:w-[400px]">
           <div className="sticky top-8">
             <BuyCourseWrapper courseData={courseData} />
@@ -90,7 +91,7 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Contact Help section*/}
+      {/* Contact Help Section*/}
       <div className="flex w-full max-w-[1200px] mx-auto my-14 px-3 lg:px-0">
         <RecommendedCourses />
       </div>

@@ -41,6 +41,7 @@ export default function Left({ courseData }: HeroProps) {
         </button>
       </div>
 
+      {/* Description */}
       <div className="text-gray-400 pb-6">
         {stripHtml(courseData.description)}
       </div>

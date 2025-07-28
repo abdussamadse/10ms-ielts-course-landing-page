@@ -3,8 +3,10 @@
 import { useState } from "react";
 
 const CourseContentPreview = () => {
+  // State to track which section is expanded
   const [openIndex, setOpenIndex] = useState(0);
 
+  // Hardcoded course content sections and items
   const courseSections = [
     {
       title: "Introduction",
@@ -67,8 +69,10 @@ const CourseContentPreview = () => {
     },
   ];
 
+  // Function to return the appropriate icon based on isFree status
   const getIcon = (isFree: boolean | null = null) => {
     if (isFree === true) {
+      // Play icon for free content
       return (
         <svg
           className="text-green-500 mt-1"
@@ -82,6 +86,7 @@ const CourseContentPreview = () => {
         </svg>
       );
     } else if (isFree === false) {
+      // Lock icon for paid content
       return (
         <svg
           className="text-gray-400 mt-1"
@@ -95,6 +100,7 @@ const CourseContentPreview = () => {
         </svg>
       );
     } else {
+      // Neutral icon (fallback)
       return (
         <svg
           className="text-gray-400 mt-1"
@@ -111,18 +117,23 @@ const CourseContentPreview = () => {
 
   return (
     <div className="w-full">
+      {/* Section heading */}
       <h2 className="text-lg md:text-xl font-bold md:mb-4">কন্টেন্ট প্রিভিউ</h2>
+
+      {/* Outer box with padding and optional border on larger screens */}
       <div className="md:border md:border-gray-300 rounded-md p-4 md:p-6">
         {courseSections.map((section, index) => (
           <div
             key={index}
-            className="border-b border-dashed border-gray-300 last:border-none "
+            className="border-b border-dashed border-gray-300 last:border-none"
           >
+            {/* Section toggle button */}
             <button
               onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
               className="w-full flex justify-between items-center py-4 font-semibold text-left"
             >
               {section.title}
+              {/* Dropdown arrow, rotates when section is open */}
               {section.items.length > 0 && (
                 <svg
                   className={`transform transition-transform duration-300 ${
@@ -144,14 +155,18 @@ const CourseContentPreview = () => {
               )}
             </button>
 
+            {/* If this section is open, render its items */}
             {openIndex === index && section.items.length > 0 && (
               <ul className="mb-4 space-y-3">
                 {section.items.map((item, idx) => (
                   <li key={idx} className="flex items-start justify-between">
+                    {/* Icon + title */}
                     <div className="flex gap-2 items-start">
                       {getIcon(item.isFree)}
                       <p className="text-sm text-gray-700">{item.title}</p>
                     </div>
+
+                    {/* Free label if applicable */}
                     {item.isFree && (
                       <span className="text-green-600 text-sm">ফ্রি দেখুন</span>
                     )}
