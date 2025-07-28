@@ -1,5 +1,5 @@
-// All imports now use the consistent '@/' path alias
 import { ApiResponse, APIData } from "@/app/types/ielts-course";
+import Header from "@/app/components/Header/Header";
 import Instructor from "@/app/components/Instructor/Instructor";
 import CourseStructure from "@/app/components/CourseStructure/CourseStructure";
 import FreePdf from "@/app/components/FreePdf/FreePdf";
@@ -15,7 +15,6 @@ import FAQSection from "@/app/components/FAQSection/FAQSection";
 import ContactHelp from "@/app/components/ContactHelp/ContactHelp";
 import RecommendedCourses from "@/app/components/RecommendedCourses/RecommendedCourses";
 import BuyCourseWrapper from "@/app/components/BuyCourse/BuyCourseWrapper";
-import Header from "@/app/components/Header/Header";
 
 // Fetches the course data from the API
 async function getCourseData(): Promise<APIData> {

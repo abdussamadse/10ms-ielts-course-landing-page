@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { APIData } from "@/app/types/ielts-course"; // Ensure the path is correct
+import { APIData } from "@/app/types/ielts-course";
 
-// 1. Interface to define the shape of each FAQ item from the API
+// Interface to define the shape of each FAQ item from the API
 interface FaqValue {
   question: string;
   answer: string;
@@ -17,12 +17,12 @@ interface FAQSectionProps {
 const FAQSection = ({ courseData }: FAQSectionProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  // 2. Find the 'faq' section from the API data
+  // Find the 'faq' section from the API data
   const faqSection = courseData.sections.find(
     (section) => section.type === "faq"
   );
 
-  // 3. Transform the API data into the structure the component needs
+  // Transform the API data into the structure the component needs
   const faqs =
     faqSection?.values?.map((item) => {
       // Assert the type for type safety

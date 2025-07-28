@@ -1,5 +1,5 @@
 import CheckIcon from "../Common/CheckIcon";
-import { APIData } from "@/app/types/ielts-course"; // Make sure the import path is correct
+import { APIData } from "@/app/types/ielts-course";
 
 // Define the shape of each item in the "pointers" section
 interface PointerValue {
